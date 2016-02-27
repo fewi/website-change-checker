@@ -35,10 +35,10 @@ public class HtmlService {
     public boolean isSearchString(){
         logger.info("Checking "+url+" for '"+searchString+"'");
         String html = fetchHtml();
-        if(html != null){
+        if(html == null){
             logger.warn("No HTML received.");
             return true;
-        } else if (html.contains(searchString)){
+        } else if (html != null && html.contains(searchString)){
             return true;
         }
 
