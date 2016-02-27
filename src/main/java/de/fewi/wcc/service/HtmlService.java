@@ -27,7 +27,7 @@ public class HtmlService {
 
             return doc.body().toString();
         } catch (IOException e) {
-            logger.warn("connection error", e);
+            logger.error("Connection to "+url+ " failed.");
         }
         return null;
     }
@@ -35,7 +35,10 @@ public class HtmlService {
     public boolean isSearchString(){
         logger.info("Checking "+url+" for '"+searchString+"'");
         String html = fetchHtml();
-        if(html != null && html.contains(searchString)){
+        if(html != null){
+            logger.warn("No HTML received.");
+            return true;
+        } else if (html.contains(searchString)){
             return true;
         }
 
