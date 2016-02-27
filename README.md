@@ -12,6 +12,8 @@ Run the application
 -------------
 
 ```
+Change src\main\resources\application_example.yml to application.yml
+Change configuration values
 ./gradlew bootRun
 ```
 
