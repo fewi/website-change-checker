@@ -1,0 +1,36 @@
+server:
+    port: 8080
+
+mailserver:
+    host: mail.web.com
+    port: 25
+    username: admin@web.com
+    password: topsecret
+
+email:
+    from: admin@web.com
+    subject: Hello World!
+    message: How are you today?
+    to: test@web.com,test2@web.com,test3@web.com
+
+website:
+    url: http://www.google.de
+    searchString: Google
+
+
+filename: mailsent
+
+logging:
+    file: ./log/app.log
+---
+
+spring:
+    profiles: openshift
+logging:
+    file: ${OPENSHIFT_LOG_DIR}/app.log
+
+server:
+    port: ${OPENSHIFT_DIY_PORT}
+    address: ${OPENSHIFT_DIY_IP}
+
+
